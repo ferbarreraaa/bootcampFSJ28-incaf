@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/** pseudoclase :root -> global, definir variables, semantica de
+colores, tipos de fuentes, tamaños, etc. */
+:root{
+    --box-color: #075e35;
+    --secondary-color: #fff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+.title{
+    text-align: center;
+    font-family: var(--font-family);
+}
+
+main{
+    display: flex;
+}
+
+.box{
+    background-color: var(--box-color);
+    width: 200px;
+    height: 200px;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.gridbox{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+}
+
+.gridbox .box:nth-child(1){
+    /**
+        1 -> primera fila (inicio)
+        2 -> donde vas a empezar a colocar la columna
+        3 -> donde va terminar la fila (el número 2 no se incluye)
+        4 -> donde va terminar la columna (el número 3 no se incluye)
+    */
+    grid-area: 1 / 1 / 2 / 3;
+    width: 100%;
+
+}
+
+.gridbox .box:nth-child(3){
+    grid-area: 1 / 4 / 2 / 6; /** empezamos en la columna 4 y terminamos en la 5*/
+    width: 100%;
+}
+
